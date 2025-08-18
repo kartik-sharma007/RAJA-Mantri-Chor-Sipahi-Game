@@ -18,12 +18,18 @@
     </nevigation>
     <!-- Player Name Form -->
     <section id="player-form-section" class="container">
-        <h2>Enter Player Names</h2>
+        <div class="form-heading">
+            <h2>Enter Player Names</h2>
+        </div>
         <form id="player-form">
-            <input type="text" name="player1" placeholder="Player 1 Name" required>
-            <input type="text" name="player2" placeholder="Player 2 Name" required>
-            <input type="text" name="player3" placeholder="Player 3 Name" required>
-            <input type="text" name="player4" placeholder="Player 4 Name" required>
+            <div class="input-row">
+                <input type="text" name="player1" placeholder="Player 1 Name" required>
+                <input type="text" name="player2" placeholder="Player 2 Name" required>
+            </div>
+            <div class="input-row">
+                <input type="text" name="player3" placeholder="Player 3 Name" required>
+                <input type="text" name="player4" placeholder="Player 4 Name" required>
+            </div>
             <button type="submit">Start Game</button>
         </form>
     </section>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nevigation>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <h1>Contact & Feedback</h1>
+            <p>Connect with us or share your feedback below.</p>
+        </ul>
+    </nevigation>
+    <section class="container">
+        <h2>Contact Links</h2>
+        <div style="text-align:center; margin-bottom:20px;">
+            <a href="https://instagram.com/" target="_blank">Instagram</a> |
+            <a href="https://facebook.com/" target="_blank">Facebook</a> |
+            <a href="mailto:yourmail@gmail.com">Gmail</a> |
+            <a href="mailto:yourmail@email.com">Email</a> |
+            <a href="https://x.com/" target="_blank">X (Twitter)</a>
+        </div>
+        <div style="text-align:center; margin-bottom:20px;">
+            <strong>Phone/WhatsApp:</strong> <a href="tel:+919999999999">+91-99999-99999</a>
+        </div>
+        <h2>Customer Feedback / Problem Report</h2>
+        <form id="feedback-form" style="max-width:400px; margin:auto;">
+            <div style="margin-bottom:10px;">
+                <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div style="margin-bottom:10px;">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div style="margin-bottom:10px; text-align:center;">
+                <label>
+                    <input type="radio" name="type" value="feedback" checked>
+                    Feedback
+                </label>
+                <label style="margin-left:20px;">
+                    <input type="radio" name="type" value="problem">
+                    Problem
+                </label>
+            </div>
+            <div style="margin-bottom:10px;">
+                <textarea name="message" placeholder="Your feedback or problem..." rows="4" required></textarea>
+            </div>
+            <button type="submit" id="submit-btn">Send Feedback</button>
+            <div id="feedback-response" style="margin-top:15px; text-align:center; font-weight:bold;"></div>
+        </form>
+    </section>
+    <section class="footer-section">
+        <div class="container">
+            <p>Thank you for visiting our page!</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Chor Sipahi. All rights reserved.</p>
+    </footer>
+    <script>
+document.getElementById('feedback-form').addEventListener('change', function(e) {
+    const type = this.type.value;
+    const btn = document.getElementById('submit-btn');
+    if (type === "feedback") {
+        btn.textContent = "Send Feedback";
+    } else {
+        btn.textContent = "Send Problem";
+    }
+});
+document.getElementById('feedback-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const type = this.type.value;
+    const response = document.getElementById('feedback-response');
+    if (type === "feedback") {
+        response.style.color = "#2e8b57";
+        response.textContent = "Thank you for your feedback!";
+    } else {
+        response.style.color = "#d32f2f";
+        response.textContent = "Aapki samasya ka samadhan jald hi kiya jayega!";
+    }
+    this.reset();
+    document.getElementById('submit-btn').textContent = "Send Feedback";
+});
+</script>
+</body>
+</html>
