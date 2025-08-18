@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nevigation>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <h1>Welcome to Chor Sipahi</h1>
+            <p>This is a sample page for the Chor Sipahi project.</p>
+        </ul>
+    </nevigation>
+    <!-- Player Name Form -->
+    <section id="player-form-section" class="container">
+        <h2>Enter Player Names</h2>
+        <form id="player-form">
+            <input type="text" name="player1" placeholder="Player 1 Name" required>
+            <input type="text" name="player2" placeholder="Player 2 Name" required>
+            <input type="text" name="player3" placeholder="Player 3 Name" required>
+            <input type="text" name="player4" placeholder="Player 4 Name" required>
+            <button type="submit">Start Game</button>
+        </form>
+    </section>
+
+    <!-- Game Controls -->
+    <section id="game-controls" class="container" style="display:none;">
+        <div id="cards-container" class="cards-row">
+            <!-- Cards will be added dynamically -->
+        </div>
+        <button id="next-round-btn" style="display:none;">Next Round</button>
+    </section>
+
+    <!-- Points Table -->
+    <section class="points-table-section">
+        <div class="container">
+            <h2>Points Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody id="points-table-body">
+                    <!-- Player rows will be added dynamically -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Final Result -->
+    <section id="final-result-section" class="container" style="display:none;">
+        <h2>Game Over! Final Roles:</h2>
+        <ul id="final-roles-list"></ul>
+    </section>
+
+    <section class="footer-section">
+        <div class="container">
+            <p>Thank you for visiting our page!</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Chor Sipahi. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
