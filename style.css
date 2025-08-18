@@ -148,3 +148,97 @@ footer {
     font-size: 1.1em;
     margin: 8px 0;
 }
+
+/* Style for input boxes in player form */
+#player-form input[type="text"] {
+    width: 45%;
+    padding: 10px;
+    margin: 8px 2%;
+    border: 2px solid #7c3aed;
+    border-radius: 6px;
+    font-size: 1em;
+    background: #f0f8ff;
+    transition: border-color 0.3s;
+}
+
+#player-form input[type="text"]:focus {
+    border-color: #ff6b6b;
+    outline: none;
+}
+
+/* Style for Start Game and Next Round buttons */
+#player-form button,
+#next-round-btn,
+.guess-btn {
+    padding: 10px 24px;
+    margin: 12px 8px 0 0;
+    background: linear-gradient(90deg, #7c3aed 60%, #f7b731 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #aaa;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#player-form button:hover,
+#next-round-btn:hover,
+.guess-btn:hover {
+    background: linear-gradient(90deg, #ff6b6b 60%, #7c3aed 100%);
+    transform: scale(1.05);
+}
+
+/* Style for guess buttons */
+.guess-btn {
+    display: inline-block;
+    margin: 16px 12px 0 12px;
+    min-width: 120px;
+}
+
+/* Style for table */
+.points-table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff;
+}
+
+.points-table-section th,
+.points-table-section td {
+    border: 1px solid #7c3aed;
+    padding: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+
+.points-table-section th {
+    background: #7c3aed;
+    color: #fff;
+    font-weight: bold;
+}
+
+.points-table-section td {
+    background: #f0f8ff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    .cards-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .card {
+        width: 90vw;
+        height: 100px;
+        font-size: 1em;
+    }
+    #player-form input[type="text"] {
+        width: 90%;
+        margin: 8px 0;
+    }
+}
