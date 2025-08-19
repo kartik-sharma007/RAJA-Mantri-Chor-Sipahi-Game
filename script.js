@@ -72,9 +72,60 @@ function showCardsForSelection() {
 }
 
 function askMantriGuess() {
-    // Find Mantri
+    // Find Mantri and Raja
     let mantriPlayer = players.find(p => selectedCards[p] === "Mantri");
+    let rajaPlayer = players.find(p => selectedCards[p] === "Raja");
     let chorSipahiPlayers = players.filter(p => selectedCards[p] === "Chor" || selectedCards[p] === "Sipahi");
+
+    // Show Raja-Mantri dialog in a modal
+    showRajaMantriDialog(rajaPlayer, mantriPlayer, chorSipahiPlayers);
+}
+
+function showRajaMantriDialog(raja, mantri, chorSipahiPlayers) {
+    // Create modal overlay
+    let modal = document.createElement("div");
+    modal.id = "raja-mantri-modal";
+    modal.style.position = "fixed";
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = "100vw";
+    modal.style.height = "100vh";
+    modal.style.background = "rgba(0,0,0,0.6)";
+    modal.style.display = "flex";
+    modal.style.alignItems = "center";
+    modal.style.justifyContent = "center";
+    modal.style.zIndex = 1000;
+
+    // Modal content
+    let content = document.createElement("div");
+    content.style.background = "#fff";
+    content.style.padding = "32px 24px";
+    content.style.borderRadius = "12px";
+    content.style.boxShadow = "0 2px 16px #2224";
+    content.style.textAlign = "center";
+    content.innerHTML = `
+        <div style="margin-bottom:18px;">
+            <b>${raja} (Raja):</b> <span style="color:#7c3aed;">"Mera Mantri kaun?"</span>
+        </div>
+        <div style="margin-bottom:18px;">
+            <b>${mantri} (Mantri):</b> <span style="color:#f7b731;">"Ji huzoor sarkar!"</span>
+        </div>
+        <div style="margin-bottom:18px;">
+            <b>${raja} (Raja):</b> <span style="color:#7c3aed;">"Chor Sipahi ka pata lagao!"</span>
+        </div>
+        <button id="start-guess-btn" style="margin-top:10px; padding:10px 24px; background:linear-gradient(90deg,#7c3aed 60%,#f7b731 100%);color:#fff;border:none;border-radius:6px;font-size:1.1em;font-weight:bold;cursor:pointer;box-shadow:0 2px 8px #aaa;">Next</button>
+    `;
+
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+
+    document.getElementById("start-guess-btn").onclick = function () {
+        document.body.removeChild(modal);
+        showMantriGuessOptions(mantri, chorSipahiPlayers);
+    };
+}
+
+function showMantriGuessOptions(mantriPlayer, chorSipahiPlayers) {
     const container = document.getElementById("cards-container");
     container.innerHTML = `<div style="width:100%;text-align:center;"><b>${mantriPlayer} (Mantri) - Guess who is Chor?</b></div>`;
     chorSipahiPlayers.forEach(p => {
